@@ -1,1 +1,18 @@
-<p>home works!</p>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" (click)="goToPage(page - 1)" [ngClass]="{'disabled': page == 1}">&laquo;</a>
+    </li>
+    <li class="page-item" *ngFor="let pageNumber of pageNumber();">
+      <a class="page-link" (click)="goToPage(pageNumber)">{{ pageNumber }}</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="goToPage(page + 1)" [ngClass]="{'disabled': page == total_pages}">&raquo;</a>
+    </li>
+  </ul>
+</nav>
+<div class="row g-3">
+  <div class="col-3" *ngFor="let user of users">
+    <app-user-card [user]="user"></app-user-card>
+  </div>
+</div>

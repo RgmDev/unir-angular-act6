@@ -10,6 +10,7 @@ import { UserComponent } from './components/user/user.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NewUserComponent,
     UpdateUserComponent,
     NavbarComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,8 +11,8 @@ export class UserService {
     private httpClient: HttpClient
   ) { }
 
-  getAll() {
-    return lastValueFrom(this.httpClient.get<any>(`https://peticiones.online/api/users`));
+  getAll(page: number): Promise<any> {
+    return lastValueFrom(this.httpClient.get<any>(`https://peticiones.online/api/users?page=${page}`));
   }
 
 }
