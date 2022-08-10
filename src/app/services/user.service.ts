@@ -21,4 +21,8 @@ export class UserService {
     return lastValueFrom(this.httpClient.get<any>(`${this.base_url}/${userId}`));
   }
 
+  deleteUser(userId: number) : Promise<any> {
+    return lastValueFrom(this.httpClient.delete<any>(`${this.base_url}/${userId}`));
+  }
+
 }
