@@ -7,12 +7,18 @@ import { lastValueFrom } from 'rxjs';
 })
 export class UserService {
 
+  private base_url = 'https://peticiones.online/api/users';
+
   constructor(
     private httpClient: HttpClient
   ) { }
 
   getAll(page: number): Promise<any> {
-    return lastValueFrom(this.httpClient.get<any>(`https://peticiones.online/api/users?page=${page}`));
+    return lastValueFrom(this.httpClient.get<any>(`${this.base_url}?page=${page}`));
+  }
+
+  getUserById(userId: number) : Promise<any> {
+    return lastValueFrom(this.httpClient.get<any>(`${this.base_url}/${userId}`));
   }
 
 }
