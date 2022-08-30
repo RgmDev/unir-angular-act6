@@ -1,1 +1,76 @@
-<p>new-user works!</p>
+
+<h1>NUEVO USUARIO</h1>
+
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="mt-3">
+    <label for="first_name">Nombre Usuario</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      name="first_name" 
+      id="first_name" 
+      formControlName="first_name"
+      [ngClass]="{'is-valid': form.get('first_name')?.valid && form.get('first_name')?.touched, 'is-invalid': form.get('first_name')?.invalid && form.get('first_name')?.touched }" 
+    >
+    <div *ngIf="form.get('first_name')?.hasError('required') && form.get('first_name')?.touched">
+      <span class="text-danger small">Campo obligatorio</span>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <label for="last_name">Apellido Usuario</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      name="last_name" 
+      id="last_name" 
+      formControlName="last_name"
+      [ngClass]="{'is-valid': form.get('last_name')?.valid && form.get('last_name')?.touched, 'is-invalid': form.get('last_name')?.invalid && form.get('last_name')?.touched }" 
+    >
+    <div *ngIf="form.get('last_name')?.hasError('required') && form.get('last_name')?.touched">
+      <span class="text-danger small">Campo obligatorio</span>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <label for="email">Email Usuario</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      name="email" 
+      id="email" 
+      formControlName="email"
+      [ngClass]="{'is-valid': form.get('email')?.valid && form.get('email')?.touched, 'is-invalid': form.get('email')?.invalid && form.get('email')?.touched }" 
+    >
+    <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+      <span class="text-danger small">Campo obligatorio</span>
+    </div>
+    <div *ngIf="form.get('email')?.hasError('pattern') && form.get('email')?.touched">
+      <span class="text-danger small">Formato de email incorrecto</span>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <label for="image">Imagen Usuario</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      name="image" 
+      id="image" 
+      formControlName="image"
+      [ngClass]="{'is-valid': form.get('image')?.valid && form.get('image')?.touched, 'is-invalid': form.get('image')?.invalid && form.get('image')?.touched }" 
+    >
+    <div *ngIf="form.get('image')?.hasError('required') && form.get('image')?.touched">
+      <span class="text-danger small">Campo obligatorio</span>
+    </div>
+    <div *ngIf="form.get('image')?.hasError('pattern') && form.get('image')?.touched">
+      <span class="text-danger small">Formato de imágen admitidos: jpg, jpeg y png</span>
+    </div>
+  </div>
+ 
+  <div class="mt-3">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+  </div>
+
+</form>

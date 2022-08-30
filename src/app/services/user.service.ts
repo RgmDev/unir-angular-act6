@@ -17,6 +17,12 @@ export class UserService {
     private router: Router
   ) { }
 
+  // Incluir los headers ???
+
+  createUser(user: User): Promise<any> {
+    return lastValueFrom(this.httpClient.post<any>(`${this.base_url}`, user));
+  }
+
   getAll(page: number): Promise<any> {
     return lastValueFrom(this.httpClient.get<any>(`${this.base_url}?page=${page}`));
   }
@@ -30,6 +36,10 @@ export class UserService {
   }
 
   deleteUserPopup(user: User) {
+    if(user.id === undefined) {
+      return;
+    }
+    let userId = user.id;
     Swal.fire({
       title: '¿Estás seguro?',
       html: `El usuario <b>${user.first_name} ${user.last_name}</b> será eliminado`,
@@ -41,7 +51,7 @@ export class UserService {
       confirmButtonText: 'Si, eliminar'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        let response = await this.deleteUser(user.id);
+        let response = await this.deleteUser(userId);
         if(response.error) {
           Swal.fire(
             'ERROR',
