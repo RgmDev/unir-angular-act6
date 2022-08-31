@@ -71,6 +71,12 @@ export class UserService {
     })
   }
 
+  generateUsername(user: User) {
+    let first_name = user.first_name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    let last_name = user.last_name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "");
+    return `${first_name}.${last_name}`;
+  }
+
 
 
 }

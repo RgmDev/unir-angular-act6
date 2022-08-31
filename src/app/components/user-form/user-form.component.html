@@ -1,9 +1,4 @@
-
-<h1>NUEVO USUARIO</h1>
-
-<app-user-form [onSubmit]="onSubmit"></app-user-form>
-<!-- 
-<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
 
   <div class="mt-3">
     <label for="first_name">Nombre Usuario</label>
@@ -76,4 +71,3 @@
   </div>
 
 </form>
--->

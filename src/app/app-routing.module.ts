@@ -10,7 +10,7 @@ const routes: Routes = [
   { path:'home', component: HomeComponent },
   { path:'user/:userId', component: UserComponent },
   { path:'newuser', component: NewUserComponent },
-  { path:'updateuser/:userId', component: UpdateUserComponent },
+  { path:'updateUser/:userId', component: UpdateUserComponent },
   { path: '**', redirectTo: '/home'}
 ];
 

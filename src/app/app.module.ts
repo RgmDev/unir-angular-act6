@@ -11,6 +11,7 @@ import { NewUserComponent } from './components/new-user/new-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     UpdateUserComponent,
     NavbarComponent,
     UserCardComponent,
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,

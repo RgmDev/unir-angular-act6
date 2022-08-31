@@ -20,11 +20,11 @@ export class UserCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToUserDetail(userId: number | undefined): void {
-    this.router.navigate(['user', userId]);
+  goTo(option: string, userId: number | undefined): void { 
+    this.router.navigate([option, userId]);
   }
 
-  deleteUser() {
+  deleteUser(): void {
     this.userService.deleteUserPopup(this.user);
   }
 
