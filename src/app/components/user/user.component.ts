@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/user.interface';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,38 +10,19 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
 
-  user: User = {
-    id: 0,
-    first_name: '',
-    last_name: '',
-    username: '',
-    email: '',
-    image: ''  
-  }
+
+  user: User | any;
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
-
-  ngOnInit(): void {
-    this.activatedRoute.params.subscribe((data: any) => {
-      this.getUser(data.userId);
+  ) { 
+    this.activatedRoute.params.subscribe(async (data: any) => {
+      this.user = await this.userService.getUserById(data.userId);
     });
   }
 
-  async getUser(userId: number) {
-    this.user = await this.userService.getUserById(userId);
-  }
-
-  goToHome() {
-    this.router.navigate(['home']);
-  }
-
-  updateUser() {
-    alert('Actualizar usuario');
-  }
+  ngOnInit(): void { }
 
   deleteUser() {
     this.userService.deleteUserPopup(this.user);

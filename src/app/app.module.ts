@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/user/user.component';
-import { NewUserComponent } from './components/new-user/new-user.component';
-import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
@@ -18,8 +16,6 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     AppComponent,
     HomeComponent,
     UserComponent,
-    NewUserComponent,
-    UpdateUserComponent,
     NavbarComponent,
     UserCardComponent,
     UserFormComponent,

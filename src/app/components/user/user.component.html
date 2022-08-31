@@ -4,15 +4,15 @@
     <img [src]="user.image" class="card-img-top rounded-circle" [alt]="user.first_name+' '+user.last_name">
   </div>
 
-  <div class="col-12 col-md-8">
+  <div class="col-12 col-md-8 pb-5">
     <h2>{{ user.first_name }}</h2>
     <h2>{{ user.last_name }}</h2>
     <p class="m-0"><b>Nombre de usuario:</b> {{user.username}}</p>
     <p class="m-0"><b>Email:</b> {{user.email}}</p>
-    <div class="btn-group mt-3" role="group" aria-label="Basic mixed styles example">
-      <button type="button" class="btn btn-danger" (click)="deleteUser()">Eliminar</button>
-      <button type="button" class="btn btn-warning" (click)="updateUser()">Actualizar</button>
-      <button type="button" class="btn btn-primary" (click)="goToHome()">Volver al listado</button>
+    <div class="btn-group mt-3" role="group" aria-label="Button group">
+      <button type="button" class="btn btn-danger d-flex justify-content-center align-items-center" (click)="deleteUser()">Eliminar</button>
+      <a type="button" class="btn btn-warning d-flex justify-content-center align-items-center" [routerLink]="['/updateUser', user.id]">Actualizar</a>
+      <a type="button" class="btn btn-primary d-flex justify-content-center align-items-center" [routerLink]="['/home']">Volver al listado</a>
     </div>
   </div>
 

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { NewUserComponent } from './components/new-user/new-user.component';
-import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
   { path:'home', component: HomeComponent },
   { path:'user/:userId', component: UserComponent },
-  { path:'newuser', component: NewUserComponent },
-  { path:'updateUser/:userId', component: UpdateUserComponent },
+  { path:'newuser', component: UserFormComponent },
+  { path:'updateUser/:userId', component: UserFormComponent },
   { path: '**', redirectTo: '/home'}
 ];
 

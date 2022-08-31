@@ -1,3 +1,4 @@
+<h1 class="text-uppercase">{{ title }}</h1>
 <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
 
   <div class="mt-3">
@@ -62,12 +63,12 @@
       <span class="text-danger small">Campo obligatorio</span>
     </div>
     <div *ngIf="form.get('image')?.hasError('pattern') && form.get('image')?.touched">
-      <span class="text-danger small">Formato de imágen admitidos: jpg, jpeg y png</span>
+      <span class="text-danger small">La imagen debe ser una URL válida</span>
     </div>
   </div>
  
   <div class="mt-3">
-    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">{{ textButton }}</button>
   </div>
 
 </form>
